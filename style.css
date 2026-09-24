@@ -1,0 +1,261 @@
+/* =========================================================================
+   陈智涵 · 求职主页样式 —— 「百相守梦」配色版
+   配色来源：从王者荣耀百相守梦皮肤特效参考图提取（按色相取最艳最亮的代表色）
+     主色·青蓝  #2BDBEC   辅色·洋红  #EA3BDE   蓝  #4D8CDC
+     点缀·亮黄  #F2D24B   深蓝紫     #4535D5   深底 #101010 → 页面用带紫的深底
+   风格：深底 + 霓虹高光，和参考图「深蓝紫底 + 青/洋红/黄光束」的气质一致
+   说明：只用一个文件、不引外部 CDN；每段都有注释，方便逐行看懂和修改
+   ========================================================================= */
+
+/* ---------- 0. 主题色：想换配色只改这一段就够了 ---------- */
+:root {
+  --bg:        #0E1024;   /* 页面底色：深蓝紫（近黑但带紫，和参考图背景同调） */
+  --card:      #171A38;   /* 卡片底色：比页面亮一档 */
+  --card-2:    #1D2145;   /* 卡片内浅色块（胶囊/标签底色） */
+  --text:      #E8EDFB;   /* 正文色：冷白 */
+  --muted:     #98A3C4;   /* 次要文字（日期、注释） */
+  --line:      #2A2F58;   /* 分隔线 / 边框 */
+  --primary:   #2BDBEC;   /* 主色：青蓝（霓虹）——编号/标题/链接 */
+  --primary-2: #4D8CDC;   /* 辅色：蓝——按钮渐变另一端 */
+  --magenta:   #EA3BDE;   /* 辅色：洋红——角色标签/强调 */
+  --yellow:    #F2D24B;   /* 点缀：亮黄——数字/占位符 */
+  --purple:    #4535D5;   /* 深蓝紫——渐变过渡 */
+  --glow:      0 0 0 1px rgba(43,219,236,.10), 0 10px 30px rgba(43,219,236,.10);  /* 青色微光阴影 */
+  --radius:    14px;
+  --maxw:      980px;
+}
+
+/* ---------- 1. 全局重置：去掉浏览器默认边距，统一盒模型 ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.7 -apple-system, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+/* ---------- 2. banner 头部：16:9 深色霓虹头图 + 内容居中 ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.hero-bg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 340px;
+  object-fit: cover;
+}
+.hero-inner {
+  position: absolute;
+  inset: 0;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 34px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 头像：AI 生成肖像，圆形 + 青色微光边 */
+.avatar {
+  width: 104px; height: 104px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(43, 219, 236, .75);      /* 描边改成青蓝，呼应霓虹 */
+  box-shadow: 0 0 22px rgba(43, 219, 236, .35);   /* 青色光晕 */
+  margin-bottom: 12px;
+}
+
+.eyebrow { margin: 0; color: var(--primary); font-size: 13px; letter-spacing: 1px; }
+.hero h1 {                                  /* 姓名：整页最大的字，加青色辉光 */
+  margin: 2px 0 6px;
+  font-size: 38px;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+  text-shadow: 0 0 18px rgba(43, 219, 236, .55), 0 0 42px rgba(69, 53, 213, .45);
+}
+.slogan { margin: 0 0 14px; max-width: 560px; color: #C6D2EE; }
+
+/* 联系方式：深色半透明胶囊，衬在霓虹头图上 */
+.contact { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.contact li {
+  background: rgba(14, 16, 36, .62);
+  border: 1px solid rgba(43, 219, 236, .28);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 13.5px;
+  color: #D5DEF5;
+}
+.contact .ico { margin-right: 5px; }
+
+/* 可复制按钮 */
+.copy {
+  border: 0; background: none; padding: 0;
+  font: inherit; color: inherit; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.copy em { font-style: normal; color: var(--yellow); font-size: 12px; }
+.copy:hover .txt { text-decoration: underline; text-decoration-color: var(--primary); }
+
+/* 按钮区 */
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn.primary {                              /* 主按钮：青→蓝渐变 + 深色字，霓虹感最强 */
+  background: linear-gradient(100deg, var(--primary), var(--primary-2));
+  color: #08111F; font-weight: 700;
+  box-shadow: 0 8px 26px rgba(43, 219, 236, .35);
+}
+.btn.ghost {                                /* 次按钮：透明底 + 青边 */
+  background: rgba(14, 16, 36, .6);
+  color: var(--primary);
+  border: 1px solid rgba(43, 219, 236, .45);
+}
+.btn:hover { transform: translateY(-2px); }
+
+/* ---------- 3. 内容区：一列卡片 ---------- */
+.wrap {
+  max-width: var(--maxw);
+  margin: -40px auto 0;                     /* 向上叠 40px，让卡片压住头图下沿 */
+  padding: 0 24px 40px;
+  position: relative;
+}
+.card {
+  background: linear-gradient(180deg, var(--card) 0%, #141733 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--glow);
+  padding: 22px 24px;
+  margin-bottom: 18px;
+}
+
+/* 章节标题：编号方块 + 标题文字 */
+.card h2 {
+  margin: 0 0 14px;
+  font-size: 17px;
+  display: flex; align-items: center; gap: 10px;
+}
+.card h2 .no {                              /* 编号方块：青蓝渐变 */
+  display: inline-grid; place-items: center;
+  width: 30px; height: 30px;
+  background: linear-gradient(140deg, var(--primary), var(--purple));
+  color: #08111F;
+  border-radius: 9px;
+  font-size: 13px; font-weight: 700; letter-spacing: .5px;
+}
+.chip {
+  margin-left: auto;
+  font-size: 12px; font-weight: 400;
+  color: var(--magenta);
+  background: rgba(234, 59, 222, .12);
+  border: 1px solid rgba(234, 59, 222, .3);
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+
+.lead { margin: 0 0 10px; }
+.note { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+code {                                      /* 行内代码 */
+  background: rgba(43, 219, 236, .10);
+  border: 1px solid rgba(43, 219, 236, .22);
+  border-radius: 5px;
+  padding: 1px 5px;
+  font-size: 12.5px;
+  color: var(--primary);
+  font-family: Consolas, "Courier New", monospace;
+}
+
+/* ---------- 4. 个人信息 ---------- */
+.info { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 24px; margin: 0; }
+.info > div { display: flex; gap: 10px; border-bottom: 1px dashed var(--line); padding-bottom: 6px; }
+.info dt { color: var(--muted); min-width: 96px; }
+.info dd { margin: 0; }
+
+/* ---------- 5. 标签（求职意向） ---------- */
+.tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; }
+.tag {
+  font-size: 13px;
+  border: 1px solid rgba(77, 140, 220, .35);
+  background: var(--card-2);
+  color: #C6D2EE;
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+.tag.solid { background: linear-gradient(100deg, var(--primary), var(--primary-2)); color: #08111F; font-weight: 700; border-color: transparent; }
+
+/* ---------- 6. 技能清单 ---------- */
+.skills { list-style: none; margin: 0; padding: 0; }
+.skills li { padding: 9px 0; border-bottom: 1px dashed var(--line); }
+.skills li:last-child { border-bottom: 0; }
+.skills b { display: inline-block; min-width: 108px; color: var(--primary); }
+.skills span { color: #C6D2EE; }
+
+/* ---------- 7. 项目卡片 ---------- */
+.work { padding: 14px 0; border-bottom: 1px dashed var(--line); }
+.work:last-child { border-bottom: 0; padding-bottom: 0; }
+.work h3 {
+  margin: 0 0 6px;
+  font-size: 15.5px;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  color: #F2F6FF;
+}
+.role {                                     /* 角色标签：洋红 */
+  font-size: 12px; font-weight: 400;
+  color: var(--magenta);
+  background: rgba(234, 59, 222, .12);
+  border: 1px solid rgba(234, 59, 222, .28);
+  border-radius: 6px; padding: 1px 8px;
+}
+.date { margin-left: auto; font-size: 12.5px; font-weight: 400; color: var(--muted); }
+.work p { margin: 0 0 6px; color: #BFCBE8; }
+.points { margin: 0; padding-left: 18px; color: #AEBBDA; font-size: 14px; }
+.points li { margin-bottom: 3px; }
+.points li::marker { color: var(--primary); }
+
+/* ---------- 8. 教育背景 ---------- */
+.timeline { border-left: 3px solid rgba(43, 219, 236, .45); padding-left: 16px; }
+.tl-item h3 { margin: 0 0 6px; font-size: 15.5px; display: flex; flex-wrap: wrap; gap: 8px; color: #F2F6FF; }
+
+/* ---------- 9. 证书荣誉 ---------- */
+.certs { list-style: none; margin: 0; padding: 0; }
+.certs li { padding: 8px 0; border-bottom: 1px dashed var(--line); }
+.certs li:last-child { border-bottom: 0; }
+.certs b { color: var(--primary); margin-right: 10px; }
+.certs span { color: var(--muted); font-size: 13.5px; }
+
+/* ---------- 10. 学习日志 ---------- */
+.logs { list-style: none; margin: 0; padding: 0; }
+.logs li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px dashed var(--line); }
+.logs li:last-child { border-bottom: 0; }
+.logs-date { color: var(--magenta); font-size: 13px; white-space: nowrap; }
+.logs p { margin: 0; color: #BFCBE8; }
+
+/* ---------- 11. 页脚 ---------- */
+.foot { max-width: var(--maxw); margin: 0 auto; padding: 0 24px 50px; text-align: center; color: #8E9ABE; font-size: 13px; }
+.foot .muted { color: var(--muted); }
+.ph { color: var(--yellow); }               /* 待填占位符：亮黄，一眼找到 */
+.top-link { color: var(--primary); text-decoration: none; }
+
+/* ---------- 12. 响应式：手机宽度（≤600px）下自动变一列 ---------- */
+@media (max-width: 600px) {
+  .hero-bg { min-height: 300px; }
+  .hero-inner { padding: 22px 16px; }
+  .hero h1 { font-size: 28px; letter-spacing: 2px; }
+  .slogan { font-size: 14px; }
+  .info { grid-template-columns: 1fr; }
+  .wrap { margin-top: -24px; padding: 0 14px 30px; }
+  .card { padding: 18px 16px; }
+  .skills b { min-width: 100%; }
+  .date { margin-left: 0; width: 100%; }
+  .contact { gap: 6px; }
+  .contact li { font-size: 12.5px; padding: 4px 10px; }
+}

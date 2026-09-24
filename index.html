@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>陈智涵 · 求职主页</title>
+  <meta name="description" content="陈智涵的个人求职主页：计算机应用技术（专科）2027 届，求职方向 数字化软件交付 / 实施支持 · AI 应用开发。">
+  <!-- 只引本地样式，禁止任何外部 CDN，保证断网也能打开 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ ① banner 头部：背景图 + 头像 + 一句话 + 联系方式 + 按钮 ============ -->
+<header class="hero" id="top">
+  <!-- 头图放在 assets/ 里，相对路径；换成别的图只要替换同名文件 -->
+  <img class="hero-bg" src="./assets/banner.png" alt="主页头图：极简蓝灰科技风">
+  <div class="hero-inner">
+    <img class="avatar" src="./assets/avatar.png" alt="陈智涵的证件照">
+    <p class="eyebrow">求职主页 · 2027 届</p>
+    <h1>陈智涵</h1>
+    <p class="slogan">计算机应用技术（专科）｜用 AI 编程把需求落成能跑起来的东西</p>
+
+    <ul class="contact">
+      <!-- 邮箱：点击一键复制（原生 JS） -->
+      <li>
+        <button class="copy" type="button" data-copy="chenzhihan1751@gmail.com" title="点击复制邮箱">
+          <span class="ico">✉</span><span class="txt">chenzhihan1751@gmail.com</span><em>点击复制</em>
+        </button>
+      </li>
+      <li><span class="ico">☎</span><span class="txt">18650664436</span></li>
+      <!-- 微信：同样支持一键复制 -->
+      <li>
+        <button class="copy" type="button" data-copy="chenzhihan1751" title="点击复制微信号">
+          <span class="ico">💬</span><span class="txt">微信 chenzhihan1751</span><em>点击复制</em>
+        </button>
+      </li>
+      <li><span class="ico">📍</span><span class="txt">厦门</span></li>
+    </ul>
+
+    <div class="actions">
+      <!-- 下载简历：文件放在 assets/resume.pdf，用相对路径 -->
+      <a class="btn primary" href="./assets/resume.pdf" download="陈智涵-求职简历v1.pdf">下载我的简历（PDF）</a>
+      <a class="btn ghost" href="#works">看我的项目</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ ② 个人信息 ============ -->
+  <section class="card" id="about">
+    <h2><span class="no">01</span>个人信息</h2>
+    <dl class="info">
+      <div><dt>姓名</dt><dd>陈智涵</dd></div>
+      <div><dt>学历</dt><dd>大专在读 · 计算机应用技术（24IT2）</dd></div>
+      <div><dt>届别</dt><dd>2024 级 · 2027 届</dd></div>
+      <div><dt>电话</dt><dd>18650664436</dd></div>
+      <div><dt>邮箱</dt><dd>chenzhihan1751@gmail.com</dd></div>
+      <div><dt>微信</dt><dd>chenzhihan1751</dd></div>
+      <div><dt>现居 / 意向城市</dt><dd>厦门</dd></div>
+      <div><dt>可到岗时间</dt><dd>【可到岗时间：待填】</dd></div>
+    </dl>
+  </section>
+
+  <!-- ============ ③ 求职意向 ============ -->
+  <section class="card" id="intent">
+    <h2><span class="no">02</span>求职意向</h2>
+    <p class="lead">目标岗位：<strong>数字化软件交付 / 实施支持实习生</strong>（也投 <strong>AI 应用开发 / 全栈开发实习生</strong>）</p>
+    <ul class="tags">
+      <li class="tag solid">厦门</li>
+      <li class="tag">实习 · 可长期</li>
+      <li class="tag">面向 JD：Office / 测试用例 / SQL / 低代码平台</li>
+    </ul>
+    <p class="note">为什么选它：岗位要的「文档整理 + 测试用例执行 + SQL + 低代码平台」我都有可出示的作品；JD 里 Python / VUE 写的是「优先」而不是「必须」。</p>
+  </section>
+
+  <!-- ============ ④ 专业技能（只放岗位相关项，全部来自我的素材库） ============ -->
+  <section class="card" id="skills">
+    <h2><span class="no">03</span>专业技能</h2>
+    <ul class="skills">
+      <li><b>办公与文档</b><span>Word / Excel —— 课程报告与方案文档独立成稿，最长一篇 16,513 字</span></li>
+      <li><b>数据库</b><span>MySQL —— 建表与增删改查 SQL；Spring Boot 项目用实体类 + Mapper 落库</span></li>
+      <li><b>低代码平台</b><span>扣子（Coze）—— 独立搭建智能体：2 条工作流编排、知识库挂载、调试</span></li>
+      <li><b>编程</b><span>Java（Spring Boot 小项目，AI 编程辅助）、Python（脚本，课程基础）</span></li>
+      <li><b>前端基础</b><span>HTML / CSS / JavaScript —— 课程作品 53 个文件、5,409 行</span></li>
+      <li><b>测试与交付</b><span>按功能点自写测试用例并执行记录；有小组交付包整理经验</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ ⑤ 实训项目经历（带数字，数字来源可当场核） ============ -->
+  <section class="card" id="works">
+    <h2><span class="no">04</span>实训项目经历</h2>
+
+    <article class="work">
+      <h3>校园AI咨询助手 · 小组实训项目<span class="role">组长</span><span class="date">2026.07</span></h3>
+      <p>交付一套「输入问题 → AI 回答」的校园问答小系统：前端页用 <code>fetch</code> 调 <code>/api/ask</code>，后端接大模型对话接口（Coze），交付包含前端页、后端工程与建表脚本。</p>
+      <ul class="points">
+        <li>3 人小组：先拆任务分工（前端 / 后端 / 文档）再联调交付</li>
+        <li>自测问题如「周一有什么课、Java 课哪个老师」</li>
+      </ul>
+    </article>
+
+    <article class="work">
+      <h3>ai-coze-backend · AI 调用后端<span class="role">独立开发（AI 编程辅助）</span><span class="date">2026.07</span></h3>
+      <p>打通「请求 → 调大模型 API → 落库」全链路：配置文件配好 token / botId / apiUrl，Controller 开放 3 个接口，工具类按 <code>workflow_id</code> 发起调用，结果写入调用记录表。</p>
+      <ul class="points">
+        <li>7 个 Java 文件约 400 行，打包 jar 24MB，本地 8080 端口跑通</li>
+      </ul>
+    </article>
+
+    <article class="work">
+      <h3>猫眼电影「电影」页复刻 · 前端课程作品<span class="role">独立完成</span><span class="date">2025.12</span></h3>
+      <p>手写复刻整页：影片切换（热映 / 待映 / 经典）＋ 类型 / 地区 / 年份 / 票价四维筛选 ＋ 影片卡片与购票弹窗。</p>
+      <ul class="points">
+        <li>共 1,648 行（HTML 705 ＋ CSS 686 ＋ JS 257），样式与脚本分离</li>
+        <li>交互链路：<code>filterMovies</code> → <code>getPagedMovies</code> → <code>renderMovies</code></li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- ============ ⑥ 教育背景 ============ -->
+  <section class="card" id="edu">
+    <h2><span class="no">05</span>教育背景</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <h3>福州墨尔本理工职业学院 · 计算机应用技术（专科）<span class="date">2024.09 — 2027.06</span></h3>
+        <ul class="points">
+          <li>2024—2025 学年综合素质测评：专业学习表现 <b>70.0 分</b>，全专业 <b>163 人中第 32 名（前 20%）</b>，无挂科</li>
+          <li>主要课程：计算机应用基础、数据库技术应用、Web 前端、计算机网络、程序设计（C / Java）、虚拟化技术与应用</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ⑦ 证书荣誉 ============ -->
+  <section class="card" id="certs">
+    <h2><span class="no">06</span>证书荣誉</h2>
+    <ul class="certs">
+      <li><b>大学英语四级（CET-4）</b><span>2026 年 6 月已通过 · 成绩单可出示</span></li>
+      <li><b>《人工智能训练师》实训</b><span>2026.07 完成 · 含考核标准与实训报告约 9,700 字</span></li>
+      <li><b>综合素质测评 · 专业学习表现</b><span>2024—2025 学年 全专业前 20%（第 32 / 163 名）</span></li>
+    </ul>
+  </section>
+
+  <!-- ============ 学习日志（进阶挑战 1：我最近在学什么） ============ -->
+  <section class="card" id="log">
+    <h2><span class="no">07</span>学习日志<span class="chip">进行中</span></h2>
+    <ul class="logs">
+      <li>
+        <span class="logs-date">2026.09</span>
+        <p><b>在学 Vue / Django 入门</b>——目标岗位的 JD 里这两项是「优先项」，我目前只有原生 HTML/CSS/JS 基础，先补框架，做出一个小作品再写进简历。</p>
+      </li>
+      <li>
+        <span class="logs-date">2026.09</span>
+        <p><b>在写自己的第一份测试用例文档</b>——把自己做过的页面当被测对象，写 10 条可执行的用例跑一遍，把简历里「测试与交付」从技能级升级成有产出的证据。</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ============ ⑧ 自我评价 ============ -->
+  <section class="card" id="self">
+    <h2><span class="no">08</span>自我评价</h2>
+    <p class="lead">4 次以上组队项目任组长，习惯把任务拆开、定节点、汇总交付；能用 AI 编程把需求落成可运行的小项目（2 个 Spring Boot 项目、2 条 Coze 工作流）；文档与表格是我的强项。</p>
+    <p class="note">主页里出现的每一个数字（400 行 / 24MB / 1,648 行 / 16,513 字 / 前 20%）都能当场打开原件核对。</p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>陈智涵 · 求职主页 · 更新于 2026-09-22</p>
+  <p class="muted">本站为纯静态页面（HTML + CSS + 原生 JS），无外部 CDN，可部署到 Gitee Pages：<span class="ph">【Gitee 主页地址：第 5 册上线后填写】</span></p>
+  <p><a class="top-link" href="#top">回到顶部</a></p>
+</footer>
+
+<script>
+/* ---------- 邮箱 / 微信 一键复制（原生 JS，不依赖任何库） ---------- */
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    var tip = btn.querySelector('em');
+    var oldText = tip ? tip.textContent : '';
+
+    function ok() {                      // 复制成功后的提示反馈
+      if (!tip) return;
+      tip.textContent = '已复制 ✓';
+      setTimeout(function () { tip.textContent = oldText; }, 1500);
+    }
+    function fallback() {                // 兜底方案：本地 file:// 打开时剪贴板 API 常被禁用
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.top = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); ok(); }
+      catch (e) { alert('复制失败，请手动复制：' + text); }
+      document.body.removeChild(ta);
+    }
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(ok, fallback);
+    } else {
+      fallback();
+    }
+  });
+});
+
+/* ---------- 锚点平滑滚动（“看我的项目 / 回到顶部”） ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    var target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>
